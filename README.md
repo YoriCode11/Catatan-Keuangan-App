@@ -1,16 +1,5 @@
-# catatan_keuangan
+# 📱 Catatan Keuangan 
 
-A new Flutter project.
+Aplikasi manajemen keuangan pribadi berbasis Flutter dan Firebase yang dirancang untuk membantu pengguna mencatat pemasukan dan pengeluaran secara cerdas, aman, dan real-time. Proyek ini merupakan tugas akhir (UAS) untuk mata kuliah Pengembangan Aplikasi Mobile.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Banner Aplikasi](https://raw.githubusercontent.com/YoriCode11/Catatan-Keuangan-App/main/screenshots/hero_banner.png)
