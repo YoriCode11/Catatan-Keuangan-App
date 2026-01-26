@@ -43,3 +43,22 @@ Fitur lanjutan untuk meningkatkan pengalaman pengguna (UX).
 * **Auto-Login**: Aplikasi menyimpan sesi login terakhir di perangkat (Shared Preferences).
 
 ![Notification](screenshots/notification_demo.png)
+
+## 🛠️ Detail Teknis & Arsitektur
+
+### 🏗️ Arsitektur Proyek
+Aplikasi ini menggunakan pola **Clean Architecture** dengan **Provider** sebagai State Management untuk memastikan kode mudah dikelola dan diuji.
+
+* **Models**: Mendefinisikan struktur data transaksi (`transaction.dart`).
+* **Providers**: Mengelola logika bisnis dan sinkronisasi state antara UI dan Firebase.
+* **Services**: Menangani integrasi pihak ketiga (Firebase Auth, Firestore, Local Storage, dan Notification).
+* **Screens & Widgets**: Komponen antarmuka yang reaktif terhadap perubahan data.
+
+---
+
+### 🧪 Pengujian Unit (Unit Testing)
+Untuk menjamin integritas data, aplikasi ini menyertakan Unit Test pada lapisan Model untuk memvalidasi konversi data ke/dari Firestore.
+
+**Cara menjalankan test:**
+```bash
+flutter test test/transaction_test.dart
