@@ -1,64 +1,61 @@
-# 📱 Catatan Keuangan 
+# 📱 Catatan Keuangan
 
-Aplikasi manajemen keuangan pribadi berbasis Flutter dan Firebase yang dirancang untuk membantu pengguna mencatat pemasukan dan pengeluaran secara cerdas, aman, dan real-time. Proyek ini merupakan tugas akhir (UAS) untuk mata kuliah Pengembangan Aplikasi Mobile.
+Aplikasi manajemen keuangan pribadi berbasis Flutter dan Firebase yang dirancang untuk membantu pengguna mencatat pemasukan dan pengeluaran secara cerdas, aman, dan real-time.
 
 ![Banner Aplikasi](https://raw.githubusercontent.com/YoriCode11/Catatan-Keuangan-App/main/screenshots/hero_banner.png)
+
+## 🚀 Tech Stack
+* **Framework**: Flutter (Multi-platform)
+* **Backend**: Firebase Authentication & Cloud Firestore (Real-time Database)
+* **State Management**: Provider
+* **Local Features**: Shared Preferences & Flutter Local Notifications
+
+---
 
 ## ✨ Fitur Utama & Dokumentasi Antarmuka
 
 ### 🔐 1. Authentication (Firebase Auth)
 Fitur pendaftaran dan masuk akun untuk menjamin keamanan data setiap pengguna.
-* **Keamanan**: Menggunakan Firebase Authentication (Email & Password).
-* **Validasi**: Form login dilengkapi pengecekan input.
-
 | Halaman Login | Halaman Register |
 |---|---|
 | ![Login](screenshots/login.png) | ![Register](screenshots/register.png) |
 
----
+### 📊 2. Real-time Dashboard & Cloud Sync
+Sinkronisasi otomatis dengan **Cloud Firestore**. Setiap transaksi yang dicatat akan langsung tersimpan di server.
+* **Evidence Cloud**: Data terstruktur tersimpan di Firebase Console.
+![Firebase Console](screenshots/firebase_evidence.png) 
+*(Gunakan image_840b55.png di sini)*
 
-### 📊 2. Real-time Dashboard (Firestore CRUD)
-Halaman utama yang menampilkan ringkasan saldo secara otomatis berdasarkan data transaksi.
-* **Summary Panel**: Total Pemasukan, Pengeluaran, dan Saldo (In/Out/Balance).
-* **Transaction List**: Menampilkan data secara real-time dari Firestore.
-
-![Dashboard](screenshots/dashboard.png)
-
----
-
-### 📝 3. Manajemen Transaksi (Create/Update/Delete)
-Sistem pencatatan keuangan yang fleksibel dengan kategori yang sudah ditentukan.
-* **Kategori**: Makan, Transport, Belanja, Tagihan, Gaji, dan Lainnya.
-* **CRUD**: Pengguna dapat menambah, mengedit, dan menghapus catatan transaksi.
-
-| Form Tambah/Edit | Detail Kategori |
+### 📝 3. Manajemen Transaksi (CRUD)
+Pengguna dapat menambah, mengedit, dan menghapus catatan transaksi dengan kategori lengkap.
+| Dashboard Utama | Form Input |
 |---|---|
-| ![Form](screenshots/form_input.png) | ![Kategori](screenshots/category_picker.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Form](screenshots/form_input.png) |
 
----
-
-### 🔔 4. Scheduling & Local Storage
-Fitur lanjutan untuk meningkatkan pengalaman pengguna (UX).
-* **Scheduling**: Notifikasi pengingat harian untuk mencatat keuangan (Notification Service).
-* **Auto-Login**: Aplikasi menyimpan sesi login terakhir di perangkat (Shared Preferences).
-
+### 🔔 4. Scheduling Notification
+Sistem pengingat otomatis (Reminder) yang dijadwalkan muncul setiap hari pukul **20:00**.
+* Menggunakan `Flutter Local Notifications` dengan dukungan zona waktu lokal (`timezone`).
 ![Notification](screenshots/notification_demo.png)
 
-## 🛠️ Detail Teknis & Arsitektur
+---
+
+## 🛠️ Detail Teknis
 
 ### 🏗️ Arsitektur Proyek
-Aplikasi ini menggunakan pola **Clean Architecture** dengan **Provider** sebagai State Management untuk memastikan kode mudah dikelola dan diuji.
+Aplikasi menggunakan pola **Clean Architecture** untuk pemisahan logika bisnis (Services), manajemen state (Provider), dan antarmuka (UI).
 
-* **Models**: Mendefinisikan struktur data transaksi (`transaction.dart`).
-* **Providers**: Mengelola logika bisnis dan sinkronisasi state antara UI dan Firebase.
-* **Services**: Menangani integrasi pihak ketiga (Firebase Auth, Firestore, Local Storage, dan Notification).
-* **Screens & Widgets**: Komponen antarmuka yang reaktif terhadap perubahan data.
+### ⚙️ Konfigurasi Lingkungan
+* **SDK**: Flutter 3.x
+* **JDK**: OpenJDK 17
+* **Android NDK**: 27.0.12077973
+* **Min SDK**: 23 (Android 6.0+)
+* **Tested Device**: POCO M3 (Android 11)
 
 ---
 
-### 🧪 Pengujian Unit (Unit Testing)
-Untuk menjamin integritas data, aplikasi ini menyertakan Unit Test pada lapisan Model untuk memvalidasi konversi data ke/dari Firestore.
+## 🧪 Pengujian & Instalasi
+Aplikasi telah melewati tahap **Unit Testing** pada model data transaksi.
 
-**Cara menjalankan test:**
+**Cara Menjalankan Test:**
 ```bash
 flutter test test/transaction_test.dart
