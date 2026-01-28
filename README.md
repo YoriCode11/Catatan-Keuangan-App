@@ -41,7 +41,7 @@ Pengguna dapat mengelola catatan keuangan dengan fitur tambah, edit, dan hapus y
 
 ### 🔔 4. Scheduling Notification (Reminder)
 
-Sistem pengingat otomatis yang dijadwalkan setiap hari pukul **20:00** untuk mengingatkan pengguna mencatat keuangan.
+Sistem pengingat otomatis yang dijadwalkan untuk mengingatkan pengguna mencatat keuangan.
 
 - Implementasi: `Flutter Local Notifications` & `Timezone`.
 - Konfigurasi: Mendukung Android 13+ (Izin Alarm Presisi).
