@@ -1,61 +1,77 @@
-# 📱 Catatan Keuangan
+# 📱 Catatan Keuangan (UAS - Mobile Programming)
 
-Aplikasi manajemen keuangan pribadi berbasis Flutter dan Firebase yang dirancang untuk membantu pengguna mencatat pemasukan dan pengeluaran secara cerdas, aman, dan real-time.
+Aplikasi manajemen keuangan pribadi berbasis **Flutter** dan **Firebase** yang dirancang untuk membantu pengguna mencatat pemasukan dan pengeluaran secara cerdas, aman, dan real-time.
 
-![Banner Aplikasi](https://raw.githubusercontent.com/YoriCode11/Catatan-Keuangan-App/main/screenshots/hero_banner.png)
+---
 
 ## 🚀 Tech Stack
-* **Framework**: Flutter (Multi-platform)
-* **Backend**: Firebase Authentication & Cloud Firestore (Real-time Database)
-* **State Management**: Provider
-* **Local Features**: Shared Preferences & Flutter Local Notifications
+
+- **Framework**: Flutter (Multi-platform)
+- **Backend**: Firebase Authentication & Cloud Firestore (Real-time Database)
+- **State Management**: Provider
+- **Local Features**: Shared Preferences & Flutter Local Notifications
 
 ---
 
 ## ✨ Fitur Utama & Dokumentasi Antarmuka
 
-### 🔐 1. Authentication (Firebase Auth)
-Fitur pendaftaran dan masuk akun untuk menjamin keamanan data setiap pengguna.
+### 🔐 1. Sistem Keamanan & Autentikasi
+
+Fitur pendaftaran dan masuk akun menggunakan **Firebase Auth** dengan validasi pesan error yang ramah pengguna.
 | Halaman Login | Halaman Register |
 |---|---|
-| ![Login](screenshots/login.png) | ![Register](screenshots/register.png) |
+| ![Login](screenshots/login.jpeg) | ![Register](screenshots/register.jpeg) |
 
 ### 📊 2. Real-time Dashboard & Cloud Sync
-Sinkronisasi otomatis dengan **Cloud Firestore**. Setiap transaksi yang dicatat akan langsung tersimpan di server.
-* **Evidence Cloud**: Data terstruktur tersimpan di Firebase Console.
-![Firebase Console](screenshots/firebase_evidence.png) 
-*(Gunakan image_840b55.png di sini)*
 
-### 📝 3. Manajemen Transaksi (CRUD)
-Pengguna dapat menambah, mengedit, dan menghapus catatan transaksi dengan kategori lengkap.
-| Dashboard Utama | Form Input |
+Sinkronisasi otomatis dengan **Cloud Firestore**. Setiap data yang dimasukkan akan langsung tersimpan di server secara aman.
+| Dashboard Utama | Evidence Cloud (Firestore) |
 |---|---|
-| ![Dashboard](screenshots/dashboard.png) | ![Form](screenshots/form_input.png) |
+| ![Dashboard](screenshots/dashboard.jpeg) | ![Firebase Console](screenshots/firebase_evidence.png) |
 
-### 🔔 4. Scheduling Notification
-Sistem pengingat otomatis (Reminder) yang dijadwalkan muncul setiap hari pukul **20:00**.
-* Menggunakan `Flutter Local Notifications` dengan dukungan zona waktu lokal (`timezone`).
-![Notification](screenshots/notification_demo.png)
+### 📝 3. Manajemen Catatan (CRUD)
+
+Pengguna dapat mengelola catatan keuangan dengan fitur tambah, edit, dan hapus yang dilengkapi dialog konfirmasi.
+| Form Tambah Catatan | Form Edit Catatan | Pilihan Tanggal |
+|---|---|---|
+| ![Form Input](screenshots/form_input.jpeg) | ![Form Edit](screenshots/form_edit.jpeg) | ![Date Picker](screenshots/pilihan_tanggal.jpeg) |
+
+> **Fitur Keamanan Data**: Terdapat peringatan konfirmasi sebelum menghapus data untuk mencegah kehilangan catatan secara tidak sengaja.
+> ![Konfirmasi Hapus](screenshots/pesan_hapus.jpeg)
+
+### 🔔 4. Scheduling Notification (Reminder)
+
+Sistem pengingat otomatis yang dijadwalkan setiap hari pukul **20:00** untuk mengingatkan pengguna mencatat keuangan.
+
+- Implementasi: `Flutter Local Notifications` & `Timezone`.
+- Konfigurasi: Mendukung Android 13+ (Izin Alarm Presisi).
 
 ---
 
 ## 🛠️ Detail Teknis
 
-### 🏗️ Arsitektur Proyek
-Aplikasi menggunakan pola **Clean Architecture** untuk pemisahan logika bisnis (Services), manajemen state (Provider), dan antarmuka (UI).
+### 🏗️ Struktur Proyek
+
+Aplikasi ini menggunakan pola **Clean Architecture** untuk pemisahan logika:
+
+- **Services**: Menangani komunikasi Firebase dan Lokal.
+- **Providers**: Manajemen state aplikasi.
+- **Screens/Widgets**: Antarmuka pengguna yang responsif.
 
 ### ⚙️ Konfigurasi Lingkungan
-* **SDK**: Flutter 3.x
-* **JDK**: OpenJDK 17
-* **Android NDK**: 27.0.12077973
-* **Min SDK**: 23 (Android 6.0+)
-* **Tested Device**: POCO M3 (Android 11)
+
+- **Framework**: Flutter 3.x
+- **Min SDK**: 23 (Android 6.0+)
+- **Tested Device**: POCO M3 (Android 11/12/13)
 
 ---
 
 ## 🧪 Pengujian & Instalasi
-Aplikasi telah melewati tahap **Unit Testing** pada model data transaksi.
+
+Aplikasi telah melewati tahap **Unit Testing** pada fungsionalitas model data.
 
 **Cara Menjalankan Test:**
+
 ```bash
 flutter test test/transaction_test.dart
+```
