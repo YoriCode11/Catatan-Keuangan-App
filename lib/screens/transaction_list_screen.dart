@@ -9,6 +9,41 @@ import 'auth/login_screen.dart';
 class TransactionListScreen extends StatelessWidget {
   const TransactionListScreen({super.key});
 
+  // Fungsi untuk menampilkan dialog konfirmasi hapus
+  void _showDeleteDialog(
+    BuildContext context,
+    TransactionProvider provider,
+    String id,
+  ) {
+    showDialog(
+      context: context,
+      builder:
+          (context) => AlertDialog(
+            title: const Text("Hapus Catatan"),
+            content: const Text("Yakin ingin menghapus catatan ini?"),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Batal"),
+              ),
+              TextButton(
+                onPressed: () {
+                  provider.delete(id);
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Catatan berhasil dihapus")),
+                  );
+                },
+                child: const Text(
+                  "Ya, Hapus",
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ],
+          ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<TransactionProvider>();
@@ -54,16 +89,20 @@ class TransactionListScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _summaryItem("Masuk", totalMasuk, Colors.greenAccent),
-                _summaryItem("Keluar", totalKeluar, Colors.orangeAccent),
-                _summaryItem("Saldo", totalMasuk - totalKeluar, Colors.white),
+                _summaryItem("Pemasukan", totalMasuk, Colors.greenAccent),
+                _summaryItem("Pengeluaran", totalKeluar, Colors.orangeAccent),
+                _summaryItem(
+                  "Sisa Dana",
+                  totalMasuk - totalKeluar,
+                  Colors.white,
+                ),
               ],
             ),
           ),
           Expanded(
             child:
                 transactions.isEmpty
-                    ? const Center(child: Text("Belum ada data"))
+                    ? const Center(child: Text("Belum ada catatan"))
                     : ListView.builder(
                       itemCount: transactions.length,
                       itemBuilder: (context, index) {
@@ -111,7 +150,12 @@ class TransactionListScreen extends StatelessWidget {
                                   Icons.delete,
                                   color: Colors.red,
                                 ),
-                                onPressed: () => provider.delete(tx.id),
+                                onPressed:
+                                    () => _showDeleteDialog(
+                                      context,
+                                      provider,
+                                      tx.id,
+                                    ),
                               ),
                             ],
                           ),

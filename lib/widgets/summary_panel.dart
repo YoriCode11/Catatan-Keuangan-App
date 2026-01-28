@@ -26,13 +26,11 @@ class SummaryPanel extends StatelessWidget {
               "Ringkasan Keuangan",
               style: Theme.of(context).textTheme.titleMedium,
             ),
-
             const SizedBox(height: 12),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Pemasukan:",
                   style: TextStyle(
                     color: Colors.green,
@@ -42,11 +40,10 @@ class SummaryPanel extends StatelessWidget {
                 Text("Rp $income", style: const TextStyle(color: Colors.green)),
               ],
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Pengeluaran:",
                   style: TextStyle(
                     color: Colors.red,
@@ -56,14 +53,12 @@ class SummaryPanel extends StatelessWidget {
                 Text("Rp $expense", style: const TextStyle(color: Colors.red)),
               ],
             ),
-
             const Divider(height: 24),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  isSurplus ? "Surplus:" : "Defisit:",
+                  isSurplus ? "Sisa Dana (Surplus):" : "Sisa Dana (Defisit):",
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
